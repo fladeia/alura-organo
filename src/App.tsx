@@ -1,6 +1,12 @@
+import Banner from './components/Banner'
+import Form from './components/Form'
+
 function App() {
   return (
-    <h1 className="text-2xl">Hello world!</h1>
+    <>
+      <Banner />
+      <Form />
+    </>
   )
 }
 

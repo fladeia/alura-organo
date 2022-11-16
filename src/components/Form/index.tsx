@@ -12,9 +12,18 @@ export default function Form() {
     'Mobile',
     'Inovação e Gestão'
   ]
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
+    event.preventDefault()
+    console.log('squad')
+  }
+
   return (
     <section className="max-w-[80%] mx-auto my-20">
-      <form className="bg-primary-gray rounded-2xl py-9 px-16" >
+      <form
+        onSubmit={handleSubmit}
+        className="bg-primary-gray rounded-2xl py-9 px-16"
+      >
         <InputField
           label='Nome'
           placeholder='Digite o nome'

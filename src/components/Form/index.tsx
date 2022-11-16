@@ -1,6 +1,17 @@
-import InputField from "../InputField";
+import InputField from "./InputField";
+import Dropdown from "./Dropdown";
+import Button from "./Button";
 
 export default function Form() {
+  const squad = [
+    'Programação',
+    'Front-End',
+    'Data Science',
+    'Devops',
+    'UX e Design',
+    'Mobile',
+    'Inovação e Gestão'
+  ]
   return (
     <section className="max-w-[80%] mx-auto my-20">
       <form className="bg-primary-gray rounded-2xl py-9 px-16" >
@@ -16,6 +27,10 @@ export default function Form() {
           label='Image'
           placeholder='Digite o endereço da imagem'
         />
+        <Dropdown label="Times" squad={squad} />
+        <Button>
+          Criar card
+        </Button>
       </form>
     </section>
   )

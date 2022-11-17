@@ -1,9 +1,10 @@
 import InputField from "./InputField";
 import Dropdown from "./Dropdown";
 import Button from "./Button";
+import { useState } from "react";
 
 export default function Form() {
-  const squad = [
+  const squads = [
     'Programação',
     'Front-End',
     'Data Science',
@@ -13,9 +14,14 @@ export default function Form() {
     'Inovação e Gestão'
   ]
 
+  const [name, SetName] = useState('')
+  const [role, SetRole] = useState('')
+  const [image, SetImage] = useState('')
+  const [squad, SetSquad] = useState('')
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault()
-    console.log('squad')
+    console.log('squad', name, role, image, squad)
   }
 
   return (
@@ -26,17 +32,28 @@ export default function Form() {
       >
         <InputField
           label='Nome'
+          value={name}
+          onChange={value => SetName(value)} // '???'
           placeholder='Digite o nome'
         />
         <InputField
           label='Cargo'
+          value={role}
+          onChange={value => SetRole(value)}
           placeholder='Digite o cargo'
         />
         <InputField
           label='Image'
+          value={image}
+          onChange={value => SetImage(value)}
           placeholder='Digite o endereço da imagem'
         />
-        <Dropdown label="Times" squad={squad} />
+        <Dropdown
+          label="Times"
+          value={squad}
+          onChange={value => SetSquad(value)}
+          squads={squads}
+        />
         <Button>
           Criar card
         </Button>

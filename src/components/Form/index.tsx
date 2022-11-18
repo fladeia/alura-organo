@@ -3,7 +3,11 @@ import Dropdown from "./Dropdown";
 import Button from "./Button";
 import { useState } from "react";
 
-export default function Form() {
+interface FormProps {
+  addStaff: (staff: {}) => void;
+}
+
+export default function Form(props: FormProps) {
   const squads = [
     'Programação',
     'Front-End',
@@ -21,7 +25,12 @@ export default function Form() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault()
-    console.log('squad', name, role, image, squad)
+    props.addStaff({
+      name,
+      role,
+      image,
+      squad
+    })
   }
 
   return (

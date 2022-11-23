@@ -3,20 +3,23 @@ import Dropdown from "./Dropdown";
 import Button from "./Button";
 import { useState } from "react";
 
+interface StaffsValue {
+  name: string;
+  role: string;
+  image: string;
+  squad: string;
+}
 interface FormProps {
-  addStaff: (staff: {}) => void;
+  addStaff: (staff: StaffsValue) => void;
+  squads: {
+    name: string;
+    secondaryColor: string;
+    tertiaryColor: string;
+  }[];
 }
 
 export default function Form(props: FormProps) {
-  const squads = [
-    'Programação',
-    'Front-End',
-    'Data Science',
-    'Devops',
-    'UX e Design',
-    'Mobile',
-    'Inovação e Gestão'
-  ]
+  //relação dos nomes dos times
 
   const [name, SetName] = useState('')
   const [role, SetRole] = useState('')
@@ -61,7 +64,7 @@ export default function Form(props: FormProps) {
           label="Times"
           value={squad}
           onChange={value => SetSquad(value)}
-          squads={squads}
+          squads={props.squads}
         />
         <Button>
           Criar card

@@ -14,37 +14,37 @@ function App() {
   const squads = [
     {
       name: 'Programação',
-      secondaryColor: 'bg-secondary-programming',
+      secondaryColor: 'border-secondary-programming',
       tertiaryColor: 'bg-tertiary-programming'
     },
     {
       name: 'Front-End',
-      secondaryColor: 'bg-secondary-frontend',
+      secondaryColor: 'border-secondary-frontend',
       tertiaryColor: 'bg-tertiary-frontend'
     },
     {
       name: 'Data Science',
-      secondaryColor: 'bg-secondary-dataSciences',
+      secondaryColor: 'border-secondary-dataSciences',
       tertiaryColor: 'bg-tertiary-dataSciences'
     },
     {
       name: 'Devops',
-      secondaryColor: 'bg-secondary-devops',
+      secondaryColor: 'border-secondary-devops',
       tertiaryColor: 'bg-tertiary-devops'
     },
     {
       name: 'UX e Design',
-      secondaryColor: 'bg-secondary-uxDesign',
+      secondaryColor: 'border-secondary-uxDesign',
       tertiaryColor: 'bg-tertiary-uxDesign'
     },
     {
       name: 'Mobile',
-      secondaryColor: 'bg-secondary-mobile',
+      secondaryColor: 'border-secondary-mobile',
       tertiaryColor: 'bg-tertiary-mobile'
     },
     {
       name: 'Inovação e Gestão',
-      secondaryColor: 'bg-secondary-inovation',
+      secondaryColor: 'border-secondary-inovation',
       tertiaryColor: 'bg-tertiary-inovation'
     },
   ]
@@ -64,7 +64,7 @@ function App() {
       <Form addStaff={staff => addNewStaff(staff)} squads={squads} />
       {
         squads.map((item) => {
-          return <Squad name={item.name} secondaryColor={item.secondaryColor} tertiaryColor={item.tertiaryColor} />
+          return <Squad key={item.name} name={item.name} secondaryColor={item.secondaryColor} tertiaryColor={item.tertiaryColor} />
         })
       }
 

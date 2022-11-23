@@ -21,12 +21,18 @@ export default function Form(props: FormProps) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault()
+
     props.addStaff({
       name,
       role,
       image,
       squad
     })
+
+    SetSquad('')
+    SetImage('')
+    SetRole('')
+    SetName('')
   }
 
   return (
@@ -38,7 +44,7 @@ export default function Form(props: FormProps) {
         <InputField
           label='Nome'
           value={name}
-          onChange={value => SetName(value)} // '???'
+          onChange={value => SetName(value)}
           placeholder='Digite o nome'
         />
         <InputField

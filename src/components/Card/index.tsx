@@ -1,7 +1,7 @@
-export function Card({ image, name, role }: { image: string, name: string, role: string }) {
+export function Card({ image, name, role, squadColor }: { image: string, name: string, role: string, squadColor: string }) {
   return (
     <div className="w-72">
-      <div className="bg-primary-gray rounded-lg">
+      <div className={`${squadColor} rounded-lg`}>
         <img src={image} alt="" className="w-24 rounded-full relative -bottom-12 inline-block" />
       </div>
       <div className="bg-primary-white shadow-md rounded-lg pt-24 pb-10">

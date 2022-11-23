@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Banner from './components/Banner'
+import { Footer } from './components/Footer';
 import Form from './components/Form'
 import { Squad } from './components/Squad';
 import { squads } from './data'
@@ -29,12 +30,14 @@ function App() {
             <Squad
               key={squad.name}
               name={squad.name}
-              secondaryColor={squad.secondaryColor}
+              secondaryColorBorder={squad.secondaryColor.border}
+              secondaryColorBg={squad.secondaryColor.background}
               tertiaryColor={squad.tertiaryColor}
               staffs={staffs.filter((staff) => staff.squad === squad.name)}
             />)
         })
       }
+      <Footer />
     </>
   )
 }

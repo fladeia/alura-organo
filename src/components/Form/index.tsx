@@ -11,16 +11,9 @@ interface StaffsValue {
 }
 interface FormProps {
   addStaff: (staff: StaffsValue) => void;
-  squads: {
-    name: string;
-    secondaryColor: string;
-    tertiaryColor: string;
-  }[];
 }
 
 export default function Form(props: FormProps) {
-  //relação dos nomes dos times
-
   const [name, SetName] = useState('')
   const [role, SetRole] = useState('')
   const [image, SetImage] = useState('')
@@ -64,7 +57,6 @@ export default function Form(props: FormProps) {
           label="Times"
           value={squad}
           onChange={value => SetSquad(value)}
-          squads={props.squads}
         />
         <Button>
           Criar card

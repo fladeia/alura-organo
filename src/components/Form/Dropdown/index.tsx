@@ -1,10 +1,6 @@
+import { squads } from '../../../data'
 interface DropdownProps {
   label: string;
-  squads: {
-    name: string;
-    secondaryColor: string;
-    tertiaryColor: string;
-  }[];
   value: string;
   onChange: (value: string) => void;
 }
@@ -17,7 +13,7 @@ export default function Dropdown(props: DropdownProps) {
         onChange={event => props.onChange(event.target.value)}
         className="w-full text-2xl p-6 shadow-lg"
       >
-        {props.squads.map((item) => {
+        {squads.map((item) => {
           return <option key={item.name} >{item.name}</option>
         })}
       </select>

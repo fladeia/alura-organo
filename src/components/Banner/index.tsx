@@ -1,11 +1,14 @@
-import banner from '../../assets/banner.png'
+interface BannerProps {
+  src: string;
+  alt: string;
+}
 
-export default function Banner() {
+export default function Banner({ src, alt }: BannerProps) {
   return (
     <img
-      src={banner}
-      alt="Banner com a frase 'Pessoas e times organizados em um só lugar' e uma imagem com pessoas formando um circulo com as mãos juntas"
-      className='bg-primary-blue'
+      src={src}
+      alt={alt}
+      className='w-full bg-primary-blue'
     />
   )
 }

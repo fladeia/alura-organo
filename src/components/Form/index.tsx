@@ -44,20 +44,23 @@ export default function Form(props: FormProps) {
         <InputField
           label='Nome'
           value={name}
-          onChange={value => SetName(value)}
           placeholder='Digite o nome'
+          onChange={value => SetName(value)}
+          required={true}
         />
         <InputField
           label='Cargo'
           value={role}
-          onChange={value => SetRole(value)}
           placeholder='Digite o cargo'
+          onChange={value => SetRole(value)}
+          required={true}
         />
         <InputField
           label='Image'
           value={image}
-          onChange={value => SetImage(value)}
           placeholder='Digite o endereço da imagem'
+          onChange={value => SetImage(value)}
+          required={true}
         />
         <Dropdown
           label="Times"
@@ -65,7 +68,7 @@ export default function Form(props: FormProps) {
           onChange={value => SetSquad(value)}
         />
         <Button>
-          Criar card {/*ButtonProps = children: React.ReactNode */}
+          Criar card
         </Button>
       </form>
     </section>

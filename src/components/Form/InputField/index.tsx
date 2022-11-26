@@ -3,11 +3,12 @@ interface InputProps {
   placeholder: string;
   value: string;
   onChange: (value: string) => void;
+  required: boolean;
 }
 
-export default function InputField(props: InputProps) {
+export default function InputField({ label, value, placeholder, onChange, required }: InputProps) {
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    props.onChange(event.target.value)
+    onChange(event.target.value)
   }
 
   return (
@@ -16,15 +17,15 @@ export default function InputField(props: InputProps) {
         htmlFor="name"
         className="block mb-2 text-2xl"
       >
-        {props.label}
+        {label}
       </label>
       <input
         type="text"
-        className="w-full text-2xl p-6 shadow-lg"
-        value={props.value}
+        value={value}
+        placeholder={placeholder}
         onChange={handleChange}
-        placeholder={props.placeholder}
-        required
+        required={required}
+        className="w-full text-2xl p-6 shadow-lg"
       />
     </div>
   )

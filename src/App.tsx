@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import Form from './components/Form'
 import { Squad } from './components/Squad';
 import { squads } from './data'
+import banner from './assets/banner.png'
 
 interface StaffsValue {
   name: string;
@@ -22,7 +23,10 @@ function App() {
 
   return (
     <>
-      <Banner />
+      <Banner
+        src={banner}
+        alt="Banner com a frase 'Pessoas e times organizados em um só lugar' e uma imagem com pessoas formando um circulo com as mãos juntas"
+      />
       <Form addStaff={staff => addNewStaff(staff)} />
       {
         squads.map((squad) => {

@@ -65,7 +65,7 @@ export default function Form(props: FormProps) {
           onChange={value => SetSquad(value)}
         />
         <Button>
-          Criar card
+          Criar card {/*ButtonProps = children: React.ReactNode */}
         </Button>
       </form>
     </section>

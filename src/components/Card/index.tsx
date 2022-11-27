@@ -1,4 +1,11 @@
-export function Card({ image, name, role, squadColor }: { image: string, name: string, role: string, squadColor: string }) {
+interface CardProps {
+  squadColor: string
+  image: string, 
+  name: string, 
+  role: string, 
+}
+
+export function Card({ squadColor, image, name, role }: CardProps) {
   return (
     <div className="w-72">
       <div className={`${squadColor} rounded-lg`}>

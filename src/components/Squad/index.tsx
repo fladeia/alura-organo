@@ -1,30 +1,32 @@
+import { IStaffs } from "../../shared/interface/IStaff";
 import { Card } from "../Card";
 
-interface StaffsValue {
-  name: string;
-  role: string;
-  image: string;
-  squad: string;
-}
-
 interface SquadProps {
-  name: string;
-  secondaryColorBorder: string;
-  secondaryColorBg: string;
+  staffs: IStaffs[];
   tertiaryColor: string;
-  staffs: StaffsValue[];
+  secondaryColorBorder: string;
+  name: string;
+  secondaryColorBg: string;
 }
 
-
-export function Squad(props: SquadProps) {
+export function Squad({staffs, tertiaryColor, secondaryColorBorder, name, secondaryColorBg }: SquadProps) {
   return (
-    props.staffs.length > 0 && <section className={`text-center p-8 ${props.tertiaryColor}`}>
-      <h3 className={`text-3xl border-b-4 ${props.secondaryColorBorder} inline-block pb-2`}>{props.name}</h3>
+    staffs.length > 0 ? <section className={`text-center p-8 ${tertiaryColor}`}>
+      <h3 className={`text-3xl border-b-4 ${secondaryColorBorder} inline-block pb-2`}>{name}</h3>
       <div className="flex flex-wrap justify-between mt-8">
-        {props.staffs.map((staff) => {
-          return <Card key={staff.image} image={staff.image} name={staff.name} role={staff.role} squadColor={props.secondaryColorBg} />
+        {staffs.map((staff) => {
+          return (
+            <Card 
+              key={staff.image} 
+              image={staff.image} 
+              name={staff.name} 
+              role={staff.role} 
+              squadColor={secondaryColorBg} 
+            />
+          )
         })}
       </div>
     </section>
+    : <></>
   )
 }

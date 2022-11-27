@@ -1,22 +1,16 @@
 import { useState } from 'react'
 import Banner from './components/Banner'
+import banner from './assets/banner.png'
 import { Footer } from './components/Footer';
 import Form from './components/Form'
 import { Squad } from './components/Squad';
+import { IStaffs } from './shared/interface/IStaff';
 import { squads } from './data'
-import banner from './assets/banner.png'
-
-interface StaffsValue {
-  name: string;
-  role: string;
-  image: string;
-  squad: string;
-}
 
 function App() {
-  const [staffs, setStaffs] = useState<StaffsValue[]>([])
+  const [staffs, setStaffs] = useState<IStaffs[]>([])
 
-  function addNewStaff(staff: StaffsValue) {
+  function addNewStaff(staff: IStaffs) {
     setStaffs([...staffs, staff])
     return staffs
   }
@@ -27,17 +21,17 @@ function App() {
         src={banner}
         alt="Banner com a frase 'Pessoas e times organizados em um só lugar' e uma imagem com pessoas formando um circulo com as mãos juntas"
       />
-      <Form addStaff={staff => addNewStaff(staff)} />
+      <Form addNewStaff={staff => addNewStaff(staff)} />
       {
         squads.map((squad) => {
           return (
             <Squad
               key={squad.name}
-              name={squad.name}
-              secondaryColorBorder={squad.secondaryColor.border}
-              secondaryColorBg={squad.secondaryColor.background}
-              tertiaryColor={squad.tertiaryColor}
               staffs={staffs.filter((staff) => staff.squad === squad.name)}
+              tertiaryColor={squad.tertiaryColor}
+              secondaryColorBorder={squad.secondaryColor.border}
+              name={squad.name}
+              secondaryColorBg={squad.secondaryColor.background}
             />)
         })
       }
@@ -47,3 +41,9 @@ function App() {
 }
 
 export default App
+
+// 'Squad' cannot be used as a JSX component.
+//   Its return type 'false | Element' is not a valid JSX element.
+//     Type 'boolean' is not assignable to type 'ReactElement<any, any>'.ts(2786)
+
+// Squad.tsx - staffs.length > 0 && <section... (if empty return false)

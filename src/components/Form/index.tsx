@@ -2,18 +2,12 @@ import InputField from "./InputField";
 import Dropdown from "./Dropdown";
 import Button from "./Button";
 import { useState } from "react";
-
-interface StaffsValue {
-  name: string;
-  role: string;
-  image: string;
-  squad: string;
-}
+import { IStaffs } from "../../shared/interface/IStaff";
 interface FormProps {
-  addStaff: (staff: StaffsValue) => void;
+  addNewStaff: (staff: IStaffs) => void;
 }
 
-export default function Form(props: FormProps) {
+export default function Form({ addNewStaff }: FormProps) {
   const [name, SetName] = useState('')
   const [role, SetRole] = useState('')
   const [image, SetImage] = useState('')
@@ -22,7 +16,7 @@ export default function Form(props: FormProps) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault()
 
-    props.addStaff({
+    addNewStaff({
       name,
       role,
       image,
@@ -66,6 +60,7 @@ export default function Form(props: FormProps) {
           label="Times"
           value={squad}
           onChange={value => SetSquad(value)}
+          required={true}
         />
         <Button>
           Criar card

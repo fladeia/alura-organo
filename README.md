@@ -5,7 +5,7 @@
 </h1>
 
 <h3 align="center">
-  <a href="https://organo-ts-s4zs.vercel.app/" target="_blank">Acessar a demonstração</a>
+  <a href="https://alura-organo-e5rvn4s8i-fladeia.vercel.app/" target="_blank">Acessar a demonstração</a>
 </h3>
 
 ## 🎫 Sobre

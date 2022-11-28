@@ -1,4 +1,5 @@
 interface InputProps {
+  type?: 'text' | 'date';
   label: string;
   placeholder: string;
   value: string;
@@ -6,7 +7,7 @@ interface InputProps {
   required: boolean;
 }
 
-export default function InputField({ label, value, placeholder, onChange, required }: InputProps) {
+export default function InputField({ type = 'text', label, value, placeholder, onChange, required }: InputProps) {
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     onChange(event.target.value)
   }
@@ -20,7 +21,7 @@ export default function InputField({ label, value, placeholder, onChange, requir
         {label}
       </label>
       <input
-        type="text"
+        type={type}
         value={value}
         placeholder={placeholder}
         onChange={handleChange}

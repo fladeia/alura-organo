@@ -21,7 +21,8 @@ export function Squad({staffs, tertiaryColor, secondaryColorBorder, name, second
               image={staff.image} 
               name={staff.name} 
               role={staff.role} 
-              squadColor={secondaryColorBg} 
+              squadColor={secondaryColorBg}
+              date={staff.date}
             />
           )
         })}

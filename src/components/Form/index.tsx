@@ -8,10 +8,11 @@ interface FormProps {
 }
 
 export default function Form({ addNewStaff }: FormProps) {
-  const [name, SetName] = useState('')
-  const [role, SetRole] = useState('')
-  const [image, SetImage] = useState('')
-  const [squad, SetSquad] = useState('')
+  const [name, setName] = useState('')
+  const [role, setRole] = useState('')
+  const [image, setImage] = useState('')
+  const [squad, setSquad] = useState('')
+  const [date, setDate] = useState('')
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault()
@@ -20,13 +21,15 @@ export default function Form({ addNewStaff }: FormProps) {
       name,
       role,
       image,
-      squad
+      squad,
+      date
     })
 
-    SetSquad('')
-    SetImage('')
-    SetRole('')
-    SetName('')
+    setSquad('')
+    setImage('')
+    setRole('')
+    setName('')
+    setDate('')
   }
 
   return (
@@ -39,27 +42,35 @@ export default function Form({ addNewStaff }: FormProps) {
           label='Nome'
           value={name}
           placeholder='Digite o nome'
-          onChange={value => SetName(value)}
+          onChange={value => setName(value)}
           required={true}
         />
         <InputField
           label='Cargo'
           value={role}
           placeholder='Digite o cargo'
-          onChange={value => SetRole(value)}
+          onChange={value => setRole(value)}
           required={true}
         />
         <InputField
           label='Image'
           value={image}
           placeholder='Digite o endereço da imagem'
-          onChange={value => SetImage(value)}
+          onChange={value => setImage(value)}
+          required={true}
+        />
+        <InputField
+          type='date'
+          label='Data'
+          value={date}
+          placeholder=''
+          onChange={date => setDate(date)}
           required={true}
         />
         <Dropdown
           label="Times"
           value={squad}
-          onChange={value => SetSquad(value)}
+          onChange={value => setSquad(value)}
           required={true}
         />
         <Button>

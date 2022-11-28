@@ -3,4 +3,5 @@ export interface IStaffs {
   role: string;
   image: string;
   squad: string;
+  date: string;
 }
